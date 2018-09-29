@@ -6,7 +6,7 @@ const log = require('./lib/logger');
 const express = require('express');
 const minimist = require('minimist');
 const app = express();
-let listener, argv, name;
+let listener, argv, name = '';
 let port = 4000;
 //</editor-fold>
 
@@ -137,12 +137,10 @@ app.get('/msg', (req, res) => {
 
 //<editor-fold desc="starting">
 
-
 // take command line arguments (port, bs)
 argv = minimist(process.argv.slice(2));
 
 // init according to argv
-name = 'lcl4000';
 if (argv.port) {
     port = argv.port;
     name = 'node_' + (port - 4000);
